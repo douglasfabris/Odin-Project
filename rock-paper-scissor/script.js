@@ -14,25 +14,36 @@ function playRound (playerSelection, computerSelection) {
     }
 }
 
-function getPlayerChoice(options) {
-    while (true) {
-        let playerChoice = prompt("Type rock, paper or scissors");
-        playerChoice = playerChoice.toLowerCase();
-        if (options.includes(playerChoice)) {
-            return playerChoice
-        } else {
-            continue
-        }
-    }
-}
+const btn = document.querySelectorAll("button");
 
-
-function game () {
-    for (i = 0; i < 5; i++) {
-        const playerSelection = getPlayerChoice(options);
+btn.forEach((button) => {
+    button.addEventListener('click', () => {
+        const playerSelection = button.id;
         const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-    }
-}
+        document.querySelector("#results").textContent = playRound(playerSelection, computerSelection)
+    })
+})
 
-game();
+
+// function getPlayerChoice(options) {
+//     while (true) {
+//         let playerChoice = prompt("Type rock, paper or scissors");
+//         playerChoice = playerChoice.toLowerCase();
+//         if (options.includes(playerChoice)) {
+//             return playerChoice
+//         } else {
+//             continue
+//         }
+//     }
+// }
+
+
+// function game () {
+//     for (i = 0; i < 5; i++) {
+//         const playerSelection = getPlayerChoice(options);
+//         const computerSelection = getComputerChoice();
+//         console.log(playRound(playerSelection, computerSelection));
+//     }
+// }
+
+// game();
